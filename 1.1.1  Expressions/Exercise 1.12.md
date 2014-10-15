@@ -27,16 +27,17 @@ doing
 (pascal 4 3) should  give us a value of 4
 
 
-(define (pascal row column)
-  (if (> column row)
-    0
-    ( if (or (= row column) (= column 0) )
-      1
-      (+ (pascal (- row 1) (- column 1)) (pascal (- row 1) column) )
+    (define (pascal row column)
+      (if (> column row)
+        0
+        ( if (or (= row column) (= column 0) )
+          1
+          (+ (pascal (- row 1) (- column 1)) (pascal (- row 1) column) )
+        )
+      )
     )
-  )
-)
 
 
 ; test
-(pascal 4 2)
+
+    (pascal 4 2)
