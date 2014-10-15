@@ -10,11 +10,16 @@ The numbers at the edge of the triangle are all 1, and each number inside the tr
 the sum of the two numbers above it.
 Write a procedure that computes elements of Pascal's triangle by means of a recursive process.
 
-         1      ---- row 0
-        1 1     ---- row 1
-       1 2 1    ---- row 2
-      1 3 3 1   ---- row 3
-     1 4 6 4 1  ---- row 4
+                 1      ---- row 0
+                1 1     ---- row 1
+               1 2 1    ---- row 2
+              1 3 3 1   ---- row 3
+             1 4 6 4 1  ---- row 4
+
+             | | | | |
+             | | | | |
+
+    column   0 1 2 3 4
 
 What we already know
 
@@ -23,9 +28,14 @@ What we already know
 3. nth row column n equals to row
 4. all other values outside the triangle are equal to zero
 
-doing
-(pascal 4 3) should  give us a value of 4
+given
 
+(3-1, 1-1) = 1
+(3-1, 1)   = 2
+
+therefore (3 1) = (3-1, 1-1) + (3-1, 1)
+
+we can write
 
     (define (pascal row column)
       (if (> column row)
